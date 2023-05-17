@@ -22,9 +22,20 @@
 
 <?php
 
-if (isset($_POST['formsend'])){
+        include 'database.php'; 
+      global $db; 
+            $q = $db->prepare("INSERT INTO user (pseudo,email,passwords) VALUES(:pseudo,:email,:passwords)");
+            $q->execute([
+                'pseudo' =>$pseudo,
+                'email'=>$email,
+                'passwords'=>$passwords
+            ]);
+    
 
-    extract($_POST);
-        $options = [
-            'cost' => 12,
-        ];
+
+  
+
+  
+?>
+
+
